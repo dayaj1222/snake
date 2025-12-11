@@ -23,7 +23,7 @@ A simple and fun Snake game built with Python and Pygame.
    pip install pygame
    ```
 2. **Run:**
-  ```bash
-   python main.py 
-  ```
+   ```bash
+   python main.py
+   ```
 
