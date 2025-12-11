@@ -1,5 +1,4 @@
 import random
-from typing import Tuple
 
 import pygame
 from pygame import Vector2
@@ -20,8 +19,8 @@ class Food(Sprite):
 
     def update(self) -> None:
         self.pos = (
-            random.randint(0, WIDTH_BLOCKS) * GRID_DIM,
-            random.randint(0, HEIGHT_BLOCKS) * GRID_DIM,
+            random.randint(0, WIDTH_BLOCKS - 1) * GRID_DIM,
+            random.randint(0, HEIGHT_BLOCKS - 1) * GRID_DIM,
         )
         self.rect.topleft = self.pos
 

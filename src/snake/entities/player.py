@@ -2,7 +2,7 @@ import pygame
 from pygame.math import Vector2
 from pygame.sprite import Group, Sprite
 
-from snake.config import DOWN, GRID_DIM, HEIGHT, IMAGE_DIR, LEFT, RIGHT, UP, WIDTH
+from snake.config import GRID_DIM, RIGHT
 
 
 class Head(Sprite):
