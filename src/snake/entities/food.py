@@ -2,18 +2,16 @@ import random
 from typing import Tuple
 
 import pygame
+from pygame import Vector2
 from pygame.sprite import Group, Sprite
 
-from snake.config import GRID_DIM, IMAGE_DIR
+from snake.config import GRID_DIM, HEIGHT_BLOCKS, IMAGE_DIR, WIDTH_BLOCKS
 
 
 class Food(Sprite):
-    def __init__(
-        self, *groups: Group, pos: Tuple[int, int], boundary: Tuple[int, int]
-    ) -> None:
+    def __init__(self, *groups: Group, pos: Vector2) -> None:
         super().__init__(*groups)
         self.pos = pos
-        self.boundary = boundary
 
         # Internal States
         image = pygame.image.load(IMAGE_DIR / "food.png").convert_alpha()
@@ -22,7 +20,10 @@ class Food(Sprite):
 
     def update(self) -> None:
         self.pos = (
-            random.randint(0, self.boundary[0]),
-            random.randint(0, self.boundary[1]),
+            random.randint(0, WIDTH_BLOCKS) * GRID_DIM,
+            random.randint(0, HEIGHT_BLOCKS) * GRID_DIM,
         )
         self.rect.topleft = self.pos
+
+    def draw(self, screen: pygame.surface.Surface):
+        screen.blit(self.image, self.pos)

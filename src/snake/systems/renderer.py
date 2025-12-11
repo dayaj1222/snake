@@ -1,21 +1,19 @@
-import pygame
-from pygame.sprite import Group, Sprite
-
 from snake.entities.food import Food
+from snake.entities.player import Snake
 
 
 class Renderer:
-    def __init__(self, screen, entities: list) -> None:
+    def __init__(self, screen, food: Food, snake: Snake) -> None:
         self.screen = screen
-        self.sprites = Group()
-        self.entities = entities
+        self.food = food
+        self.snake = snake
 
     def add(self):
-        for entity in self.entities:
-            self.sprites.add(entity)
+        self.food.add()
 
     def draw(self):
-        self.sprites.draw(self.screen)
+        self.food.draw(self.screen)
+        self.snake.draw(self.screen)
 
     def update(self):
         pass
